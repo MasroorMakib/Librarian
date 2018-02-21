@@ -45,14 +45,18 @@ console.log(bookByAuthor());
 
 /* Task 5 */
 function findByTitle( title ){
-  var pat= new RegExp(title);
-  for (var i = 0; i < library.length; i++) {
-    if (library[i].title.match(pat)) {
-
-      return library[i].title;
-
-    }
-  }
+    var pattern=new RegExp(""+title,"i");
+    var x=[];
+    for ( i in library)
+        {
+            var st=library[i].title;
+            if(st.search(pattern)!=-1)
+            {
+                x.push(library[i]);
+            }
+        }
+    
+    return x;
 }
 
 console.log(findByTitle("man"));
